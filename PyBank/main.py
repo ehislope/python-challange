@@ -12,7 +12,7 @@ with open (csvpath, newline='') as csvfile:
 
  # CSV reader specifies delimiter and variable that holds contents
     csvreader = csv.reader(csvfile, delimiter=',')
-# print(csvreader)
+# set variables for total months, net profit/loss, profit loss change, 
     count = 0
     net = 0
     profit_losses = []
