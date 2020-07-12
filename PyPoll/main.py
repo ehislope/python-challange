@@ -6,7 +6,10 @@ import os
 import csv
 # import CSV
 csvpath = os.path.join('Resources', 'election_data.csv')
-
+# define function and have it accept 'election_data' as parameter
+def print_candidate_name(election_data):
+    candidate_name = str(election_data[2])
+    print(candidate_name)
 # read election_data
 with open (csvpath, newline='') as csvfile:
 
@@ -15,14 +18,13 @@ with open (csvpath, newline='') as csvfile:
    
     # Read the header row first (skip this step if there is now header)
     csv_header = next(csvreader)
-# set variables for total votes, list of canditates, % votes by candidate, total votes by candidate
+   
+    # assign value to variables
+    
     count = 0
-    candidates = []
+    candidate_name=[]
     candidate_count = 0
     percent = 0
-
-   
-
     for Row in csvreader:
     # The total number of votes cast
         count = count + 1
@@ -30,8 +32,8 @@ with open (csvpath, newline='') as csvfile:
     # A complete list of candidates who received votes
     # The percentage of votes each candidate won
     # The total number of votes each candidate won
-    for i in range(0, len(candidates)):
-        candidate_count = candidate_count + (candidates[i] + candidates[i+1])
+    for i in range(0, len(candidate_name)):
+        candidate_count = candidate_count + (candidate_name[i] + candidate_name[i+1])
         percent = candidate_count/count
         break
 
@@ -45,4 +47,4 @@ print("Election Results")
 print("-------------------------------------")
 print(f"Total Votes: {count}")
 print("-------------------------------------")
-# print(f"[Candidate1]: {percent:.3f}, {(candidate_count)})
+print(f'[candidate_name]: {percent:.3f}, {(candidate_count)}')
