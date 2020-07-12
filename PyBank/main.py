@@ -30,12 +30,13 @@ with open (csvpath, newline='') as csvfile:
         # figure out the month over month profit/loss and avererage
     for i in range(0, len(profit_losses)):
         # profit_losses[i+1] - profit_losses[i]
-        sum_changes = sum_changes + profit_losses[i+1] - profit_losses[i]
+        sum_changes = sum_changes + (profit_losses[i]-profit_losses[i+1])
         Average = sum_changes/count
         break
         # find greatest monthly profit over time
 
         # find greasted decrease in losses over time
+
 # output analysis to .txt
 output_path = os.path.join("Analysis", "Analysis.txt")
 f = open(output_path, 'w')
@@ -44,5 +45,12 @@ print("-------------------------------------", file=f)
 print(f"Total Months: {count}", file=f)
 print(f"Total:{net}", file=f)
 print (f"Average Change: {Average:.2f}", file=f)
+
+# output in terminal
+print("Financial Analysis")
+print("-------------------------------------")
+print(f"Total Months: {count}")
+print(f"Total:{net}")
+print (f"Average Change: {Average:.2f}")
 
 
