@@ -18,18 +18,31 @@ with open (csvpath, newline='') as csvfile:
 # set variables for total votes, list of canditates, % votes by candidate, total votes by candidate
     count = 0
     candidates = []
+    candidate_count = 0
     percent = 0
+
+   
 
     for Row in csvreader:
     # The total number of votes cast
         count = count + 1
+
     # A complete list of candidates who received votes
-    
-
     # The percentage of votes each candidate won
-
-   
     # The total number of votes each candidate won
+    for i in range(0, len(candidates)):
+        candidate_count = candidate_count + (candidates[i] + candidates[i+1])
+        percent = candidate_count/count
+        break
+
+
 
 
 # The winner of the election based on popular vote
+
+# output in terminal
+print("Election Results")
+print("-------------------------------------")
+print(f"Total Votes: {count}")
+print("-------------------------------------")
+# print(f"[Candidate1]: {percent:.3f}, {(candidate_count)})
