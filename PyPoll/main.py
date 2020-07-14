@@ -34,7 +34,8 @@ with open (csvpath, newline='') as csvfile:
             votes = votes + 1
             # count votes per candidate
             candidate.append(str(Row[2]))
-    # count votes and calculate % for each candidate
+    # count votes and calculate % for each candidate, .count found on \
+    # https://www.programiz.com/python-programming/methods/list/count
     khan_votes= candidate.count(candidate[0])
     khan_percent = (khan_votes/votes)*100
     correy_votes= candidate.count(candidate[1])

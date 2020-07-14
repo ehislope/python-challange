@@ -33,6 +33,7 @@ with open (csvpath, newline='') as csvfile:
         sum_changes = sum_changes + (profit_losses[i]-profit_losses[i+1])
         Average = sum_changes/count
         break
+        
         # find greatest monthly profit over time
 
         # find greasted decrease in losses over time
