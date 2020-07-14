@@ -6,10 +6,7 @@ import os
 import csv
 # import CSV
 csvpath = os.path.join('Resources', 'election_data.csv')
-# define function and have it accept 'election_data' as parameter
-def print_candidate_name(election_data):
-    candidate_name = str(election_data[2])
-    print(candidate_name)
+
 # read election_data
 with open (csvpath, newline='') as csvfile:
 
@@ -20,31 +17,44 @@ with open (csvpath, newline='') as csvfile:
     csv_header = next(csvreader)
    
     # assign value to variables
+    votes = 0
+    candidate = ["Khan","Correy","Li", "O'Tooley"]
+    kahn_votes = 0
+    kahn_percent = 0
+    correy_votes = 0
+    correy_percent = 0
+    li_votes = 0
+    li_percent = 0
+    otooley_votes = 0
+    otooley_percent = 0
     
-    count = 0
-    candidate_name=[]
-    candidate_count = 0
-    percent = 0
     for Row in csvreader:
-    # The total number of votes cast
-        count = count + 1
+        # The total number of votes cast
+            votes = votes + 1
+            # count votes per candidate
+            candidate.append(str(Row[2]))
+    khan_votes= candidate.count(candidate[0])
+    khan_percent = kahn_votes/votes
+    correy_votes= candidate.count(candidate[1])
+    correy_percent = correy_votes/votes
+    li_votes= candidate.count(candidate[2])
+    li_percent = li_votes/votes
+    otooley_votes= candidate.count(candidate[3])
+    otooley_percent = otooley_votes/votes
 
-    # A complete list of candidates who received votes
-    # The percentage of votes each candidate won
-    # The total number of votes each candidate won
-    for i in range(0, len(candidate_name)):
-        candidate_count = candidate_count + (candidate_name[i] + candidate_name[i+1])
-        percent = candidate_count/count
-        break
+        # A complete list of candidates who received votes
+            # candidate_names = ["Khan", "Correy", "Li", "O'Tooley"]
+            # vote_count_khan= candidate_names.count("Khan") + 1
 
-
-
-
+    
+    
 # The winner of the election based on popular vote
-
 # output in terminal
 print("Election Results")
 print("-------------------------------------")
-print(f"Total Votes: {count}")
+print(f"Total Votes: {votes}")
 print("-------------------------------------")
-print(f'[candidate_name]: {percent:.3f}, {(candidate_count)}')
+print(f'{candidate[0]}: {kahn_percent:.3f}, ({kahn_votes})')
+print(f'{candidate[1]}: {correy_percent:.3f}, ({correy_votes})')
+print(f'{candidate[2]}: {li_percent:.3f}, ({li_votes})')
+print(f'{candidate[3]}: {otooley_percent:.3f}, ({otooley_votes})')
